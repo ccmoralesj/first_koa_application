@@ -11,7 +11,7 @@ var routes = require("koa-route");
 
 // Routes
 var userRoutes = require("./routes/users");
-console.log("USERS",userRoutes);
+
 app.use(routes.post("/users",userRoutes.addUser));
 app.use(routes.get("/users/:uid",userRoutes.getUsers));
 app.use(routes.put("/users/:uid",userRoutes.updateUsers));
