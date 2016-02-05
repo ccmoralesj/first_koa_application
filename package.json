@@ -1,0 +1,26 @@
+{
+  "name": "first_koa_app",
+  "version": "0.1.0",
+  "description": "Simple app that allows me to logIn and do some CRUD operations",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccmoralesj/first_koa_application.git"
+  },
+  "keywords": [
+    "koajs",
+    "koa_app",
+    "first",
+    "koa",
+    "app"
+  ],
+  "author": "Cristian Camilo Morales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccmoralesj/first_koa_application/issues"
+  },
+  "homepage": "https://github.com/ccmoralesj/first_koa_application#readme"
+}
