@@ -4,7 +4,8 @@
   "description": "Simple app that allows me to logIn and do some CRUD operations",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "start": "node --harmony app.js",
+    "test": "./node_modules/mocha/bin/mocha --harmony-generators test.js -u bdd -R spec"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/ccmoralesj/first_koa_application/issues"
   },
-  "homepage": "https://github.com/ccmoralesj/first_koa_application#readme"
+  "homepage": "https://github.com/ccmoralesj/first_koa_application#readme",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "supertest": "^1.1.0",
+    "co": "^4.6.0"
+  },
+  "dependencies": {
+    "koa": "^1.1.2"
+  }
 }
