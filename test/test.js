@@ -3,28 +3,24 @@
  */
 "use strict";
 var co = require('co');
-var users = require("./routes/users").users;
 
-var app = require('./app.js');
+var app = require('./../app.js');
 var request = require('supertest').agent(app.listen());
 
+var utils = require('./utils.js');
+
 describe('First KOA app.',function(){
+
+    // Test User for every unit testing
     var test_user = { name: "Cristian", city:"Medellín, Colombia"};
 
-    function removeAll(done){
-        co(function*(){
-            yield users.remove({});
-
-            done();
-        });
-    }
-
+    // Hooks before and after every Test
     beforeEach(function(done){
-        removeAll(done);
+        utils.removeAll(done);
     });
 
     afterEach(function(done){
-        removeAll(done);
+        utils.removeAll(done);
     });
 
     it('POST new user',function(done){
@@ -36,12 +32,11 @@ describe('First KOA app.',function(){
             .expect(200,done);
     });
 
-
     it('GET existing user',function(done){
 
         co(function*(){
             // Insert test user in database
-            var user = yield users.insert(test_user);
+            var user = yield utils.users.insert(test_user);
 
             var userURL = '/users/' + user._id;
 
@@ -59,7 +54,7 @@ describe('First KOA app.',function(){
     it('PUT updating some user data',function(done){
         co(function*(){
             // Insert test user in database
-            var user = yield users.insert(test_user);
+            var user = yield utils.users.insert(test_user);
 
             var userURL = '/users/' + user._id;
 
@@ -75,7 +70,7 @@ describe('First KOA app.',function(){
     it('DELETE Deleting some user from the database',function(done){
         co(function*(){
             // Insert test user in database
-            var user = yield users.insert(test_user);
+            var user = yield utils.users.insert(test_user);
 
             var userURL = '/users/' + user._id;
 
