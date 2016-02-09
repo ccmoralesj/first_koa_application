@@ -12,10 +12,13 @@ var users = wrap(db.get("users"));
 
 module.exports= {
     users   : users,
-    getUsers: function*(uid){
-        this.body = "Hey there user number: " + uid;
+    getUsers: function* (uid){
+
+        var user = yield users.findById(uid);
+        this.body = user;
     },
-    addUser: function*(){
+    addUser: function* (){
+
         // Parse incoming user
         var user = yield parse(this);
 
