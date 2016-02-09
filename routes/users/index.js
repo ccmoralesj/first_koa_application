@@ -12,13 +12,7 @@ var users = wrap(db.get("users"));
 
 module.exports= {
     users   : users,
-    getUsers: function* (uid){
-
-        var user = yield users.findById(uid);
-        this.body = user;
-        this.status = 200;
-    },
-    addUser: function* (){
+    addUser: function*(){
 
         // Parse incoming user
         var user = yield parse(this);
@@ -28,6 +22,12 @@ module.exports= {
 
         // Return location of user and HTTP OK
         this.set("location","/users/" + userSaved._id);
+        this.status = 200;
+    },
+    getUsers: function*(uid){
+
+        var user = yield users.findById(uid);
+        this.body = user;
         this.status = 200;
     },
     updateUser: function*(uid){
