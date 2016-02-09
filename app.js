@@ -15,7 +15,7 @@ var userRoutes = require("./routes/users");
 app.use(routes.post("/users",userRoutes.addUser));
 app.use(routes.get("/users/:uid",userRoutes.getUsers));
 app.use(routes.put("/users/:uid",userRoutes.updateUser));
-app.use(routes.del("/users/:uid",userRoutes.deleteUsers));
+app.use(routes.del("/users/:uid",userRoutes.deleteUser));
 
 
 // Fire it up

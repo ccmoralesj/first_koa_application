@@ -72,5 +72,18 @@ describe('First KOA app.',function(){
         });
     });
 
+    it('DELETE Deleting some user from the database',function(done){
+        co(function*(){
+            // Insert test user in database
+            var user = yield users.insert(test_user);
+
+            var userURL = '/users/' + user._id;
+
+            // DELETE
+            request
+                .del(userURL)
+                .expect(200,done);
+        });
+    });
 });
 

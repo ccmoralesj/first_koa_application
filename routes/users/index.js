@@ -40,7 +40,8 @@ module.exports= {
         this.set("location","/users/" + uid);
         this.status = 204;
     },
-    deleteUser: function*(){
-
+    deleteUser: function*(uid){
+        yield users.remove({_id:uid});
+        this.status = 200;
     }
 };
