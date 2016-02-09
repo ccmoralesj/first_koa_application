@@ -56,5 +56,21 @@ describe('First KOA app.',function(){
         });
     });
 
+    it('PUT updating some user data',function(done){
+        co(function*(){
+            // Insert test user in database
+            var user = yield users.insert(test_user);
+
+            var userURL = '/users/' + user._id;
+
+            // PUT
+            request
+                .put(userURL)
+                .send({name: 'Cristian V2', city:'Bello, Colombia'})
+                .expect('location',userURL)
+                .expect(204,done);
+        });
+    });
+
 });
 

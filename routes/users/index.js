@@ -16,6 +16,7 @@ module.exports= {
 
         var user = yield users.findById(uid);
         this.body = user;
+        this.status = 200;
     },
     addUser: function* (){
 
@@ -28,5 +29,18 @@ module.exports= {
         // Return location of user and HTTP OK
         this.set("location","/users/" + userSaved._id);
         this.status = 200;
+    },
+    updateUser: function*(uid){
+
+        // Parse incoming user
+        var user = yield parse(this);
+
+        yield users.updateById(uid,user);
+
+        this.set("location","/users/" + uid);
+        this.status = 204;
+    },
+    deleteUser: function*(){
+
     }
 };
