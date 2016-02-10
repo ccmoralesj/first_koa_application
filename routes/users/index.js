@@ -27,7 +27,7 @@ module.exports= {
 
         // Return location of user and HTTP OK
         this.set("location","/users/" + userSaved._id);
-        this.status = 200;
+        this.status = 201;
     },
     getUsers: function*(uid){
 

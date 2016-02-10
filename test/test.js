@@ -29,7 +29,7 @@ describe('First KOA app.',function(){
             .post("/users")
             .send(test_user)
             .expect('location',/^\/users\/[0-9a-fA-F]{24}$/) // Mongo Object ID /users/2342
-            .expect(200,done);
+            .expect(201,done);
     });
 
     it('GET existing user',function(done){
