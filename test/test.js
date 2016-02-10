@@ -5,6 +5,7 @@
 var co = require('co');
 
 var app = require('./../app.js');
+
 var request = require('supertest').agent(app.listen());
 
 var utils = require('./utils.js');

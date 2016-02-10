@@ -2,18 +2,10 @@
  * Created by ccmoralesj on 5/02/16.
  */
 var parse = require("co-body");
-
-var monk = require("monk");
-var wrap = require("co-monk");
-
-var db = monk("localhost/firstKoaAPI");
-var users = wrap(db.get("users"));
-
 var DBUser = require('mongoose').model('User');
 
 
 module.exports= {
-    users   : users,
     addUser: function*(){
 
         // Parse incoming user
