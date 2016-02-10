@@ -47,7 +47,7 @@ module.exports= {
         this.status = 204;
     },
     deleteUser: function*(uid){
-        yield users.remove({_id:uid});
+        yield DBUser.remove({_id:uid});
         this.status = 200;
     }
 };

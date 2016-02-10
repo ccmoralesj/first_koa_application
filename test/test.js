@@ -53,7 +53,7 @@ describe('First KOA app.',function(){
         });
     });
 
-    it.only('PUT updating some user data',function(done){
+    it('PUT updating some user data',function(done){
         co(function*(){
             // Insert test user in database
             var newUser = new utils.DBUser(test_user);
@@ -71,10 +71,12 @@ describe('First KOA app.',function(){
         });
     });
 
-    it('DELETE Deleting some user from the database',function(done){
+    it.only('DELETE Deleting some user from the database',function(done){
         co(function*(){
             // Insert test user in database
-            var user = yield utils.DBUser.insert(test_user);
+            var newUser = new utils.DBUser(test_user);
+
+            var user = yield newUser.save();
 
             var userURL = '/users/' + user._id;
 
