@@ -12,7 +12,7 @@ var utils = require('./utils.js');
 describe('First KOA app.',function(){
 
     // Test User for every unit testing
-    var test_user = { name: "Cristian", city:"Medellín, Colombia"};
+    var test_user = { name: "Cristian Camilo", city:"Bello, Colombia"};
 
     // Hooks before and after every Test
     beforeEach(function(done){
@@ -23,7 +23,7 @@ describe('First KOA app.',function(){
         utils.removeAll(done);
     });
 
-    it('POST new user',function(done){
+    it.only('POST new user',function(done){
         // POST
         request
             .post("/users")
@@ -36,7 +36,7 @@ describe('First KOA app.',function(){
 
         co(function*(){
             // Insert test user in database
-            var user = yield utils.users.insert(test_user);
+            var user = yield utils.DBUser.insert(test_user);
 
             var userURL = '/users/' + user._id;
 
@@ -54,7 +54,7 @@ describe('First KOA app.',function(){
     it('PUT updating some user data',function(done){
         co(function*(){
             // Insert test user in database
-            var user = yield utils.users.insert(test_user);
+            var user = yield utils.DBUser.insert(test_user);
 
             var userURL = '/users/' + user._id;
 
@@ -70,7 +70,7 @@ describe('First KOA app.',function(){
     it('DELETE Deleting some user from the database',function(done){
         co(function*(){
             // Insert test user in database
-            var user = yield utils.users.insert(test_user);
+            var user = yield utils.DBUser.insert(test_user);
 
             var userURL = '/users/' + user._id;
 

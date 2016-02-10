@@ -19,8 +19,6 @@ app.use(routes.get("/users/:uid",userRoutes.getUsers));
 app.use(routes.put("/users/:uid",userRoutes.updateUser));
 app.use(routes.del("/users/:uid",userRoutes.deleteUser));
 
-app.use(routes.post("/post-user",userRoutes.addUserMongoose));
-
 
 // Fire it up
 app.listen(3000);

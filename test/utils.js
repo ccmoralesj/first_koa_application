@@ -2,13 +2,13 @@
  * Created by ccmoralesj on 9/02/16.
  */
 var co = require('co');
-var users = require("../routes/users").users;
+var DBUser = require('mongoose').model('User');
 
 module.exports = {
-    users : users,
+    DBUser : DBUser,
     removeAll: function(done){
         co(function*(){
-            yield users.remove({});
+            yield DBUser.remove({});
 
             done();
         });
