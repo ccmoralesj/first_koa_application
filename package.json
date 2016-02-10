@@ -4,8 +4,8 @@
   "description": "Simple app that allows me to logIn and do some CRUD operations",
   "main": "app.js",
   "scripts": {
-    "start": "node --harmony app.js",
-    "test": "./node_modules/mocha/bin/mocha --harmony-generators ./test/test.js -u bdd -R spec"
+    "start": "node app.js",
+    "test": "./node_modules/mocha/bin/mocha ./test/test.js -u bdd -R spec"
   },
   "repository": {
     "type": "git",
