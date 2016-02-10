@@ -41,7 +41,7 @@ module.exports= {
         // Parse incoming user
         var user = yield parse(this);
 
-        yield users.updateById(uid,user);
+        yield DBUser.update({_id: uid},{$set:user});
 
         this.set("location","/users/" + uid);
         this.status = 204;

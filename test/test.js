@@ -32,7 +32,7 @@ describe('First KOA app.',function(){
             .expect(200,done);
     });
 
-    it.only('GET existing user',function(done){
+    it('GET existing user',function(done){
 
         co(function*(){
             // Insert test user in database
@@ -53,10 +53,12 @@ describe('First KOA app.',function(){
         });
     });
 
-    it('PUT updating some user data',function(done){
+    it.only('PUT updating some user data',function(done){
         co(function*(){
             // Insert test user in database
-            var user = yield utils.DBUser.insert(test_user);
+            var newUser = new utils.DBUser(test_user);
+
+            var user = yield newUser.save();
 
             var userURL = '/users/' + user._id;
 
