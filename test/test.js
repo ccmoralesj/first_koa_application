@@ -71,7 +71,7 @@ describe('First KOA app.',function(){
         });
     });
 
-    it.only('DELETE Deleting some user from the database',function(done){
+    it('DELETE Deleting some user from the database',function(done){
         co(function*(){
             // Insert test user in database
             var newUser = new utils.DBUser(test_user);
