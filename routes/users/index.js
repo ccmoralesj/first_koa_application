@@ -31,7 +31,8 @@ module.exports= {
     },
     getUsers: function*(uid){
 
-        var user = yield users.findById(uid);
+        //var user = yield DBUser.findOne({_id:uid}).select('-_id -__v');
+        var user = yield DBUser.findById(uid);
         this.body = user;
         this.status = 200;
     },

@@ -10,4 +10,8 @@ var UserSchema = new Schema({
     created_at  :   {type: Date, default: Date.now}
 });
 
+UserSchema.statics.findById = function(id){
+    return this.findOne({_id:id}).select('-_id -__v');
+};
+
 module.exports = mongoose.model('User', UserSchema);

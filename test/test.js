@@ -12,7 +12,7 @@ var utils = require('./utils.js');
 describe('First KOA app.',function(){
 
     // Test User for every unit testing
-    var test_user = { name: "Cristian Camilo", city:"Bello, Colombia"};
+    var test_user = { name: "Cristian Camilo", city:"Medellín, Colombia"};
 
     // Hooks before and after every Test
     beforeEach(function(done){
@@ -23,7 +23,7 @@ describe('First KOA app.',function(){
         utils.removeAll(done);
     });
 
-    it.only('POST new user',function(done){
+    it('POST new user',function(done){
         // POST
         request
             .post("/users")
@@ -32,11 +32,13 @@ describe('First KOA app.',function(){
             .expect(200,done);
     });
 
-    it('GET existing user',function(done){
+    it.only('GET existing user',function(done){
 
         co(function*(){
             // Insert test user in database
-            var user = yield utils.DBUser.insert(test_user);
+            var newUser = new utils.DBUser(test_user);
+
+            var user = yield newUser.save();
 
             var userURL = '/users/' + user._id;
 
