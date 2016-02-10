@@ -14,9 +14,10 @@
   "keywords": [
     "koajs",
     "koa_app",
-    "first",
     "koa",
-    "app"
+    "app",
+    "nodejs",
+    "node"
   ],
   "author": "Cristian Camilo Morales",
   "license": "ISC",
