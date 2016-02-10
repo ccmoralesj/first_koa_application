@@ -6,7 +6,7 @@ var fs = require('fs');
 var path = require('path');
 
 var mongooseCachebox = require('mongoose-cachebox');
-var DBUser = require('./firstKoaAPI/firstKoaAPI');
+var DBUser = require('./User/User');
 
 mongoose.connect('mongodb://localhost/firstKoaAPI');
 
