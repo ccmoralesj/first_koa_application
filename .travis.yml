@@ -5,11 +5,14 @@ cache:
     - node_modules
 notifications:
   email: false
+services:
+  - mongodb
 node_js:
   - '4'
 before_install:
   - npm i -g npm@^2.0.0
 before_script:
+  - sleep 15
   - npm prune
 script:
   - npm run test
