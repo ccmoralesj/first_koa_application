@@ -1,15 +1,17 @@
 {
   "name": "first_koa_app",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-release",
   "description": "Simple app that allows me to logIn and do some CRUD operations",
   "main": "app.js",
   "scripts": {
+    "commit": "git-cz",
     "start": "node app.js",
-    "test": "./node_modules/mocha/bin/mocha ./test/test.js -u bdd -R spec"
+    "test": "./node_modules/mocha/bin/mocha ./test/test.js -u bdd -R spec",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ccmoralesj/first_koa_application.git"
+    "url": "https://github.com/ccmoralesj/first_koa_application.git"
   },
   "keywords": [
     "koajs",
@@ -26,9 +28,12 @@
   },
   "homepage": "https://github.com/ccmoralesj/first_koa_application#readme",
   "devDependencies": {
+    "co": "^4.6.0",
+    "commitizen": "^2.8.1",
+    "cz-conventional-changelog": "^1.1.6",
     "mocha": "^2.4.5",
-    "supertest": "^1.1.0",
-    "co": "^4.6.0"
+    "semantic-release": "^4.3.5",
+    "supertest": "^1.1.0"
   },
   "dependencies": {
     "co-body": "^4.0.0",
@@ -36,5 +41,8 @@
     "koa-route": "^2.4.2",
     "mongoose": "^4.4.3",
     "mongoose-cachebox": "^1.2.0"
+  },
+  "czConfig":{
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
